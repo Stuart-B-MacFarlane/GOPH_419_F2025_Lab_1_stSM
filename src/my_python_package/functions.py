@@ -11,7 +11,8 @@ def sqrt(x):
     #Returns
     #--------
     #int or float
-    n = 0 
+    n = 0
+    xsqrd = 0
     if (x < 0) or (x > 2.5):
         print( "Radicand is outside of accepted range")
     else:
@@ -28,8 +29,14 @@ def sqrt(x):
             a = 2.0
             asqrd = 1.4142135623731
         print ("a =",a, "and asqrd =",asqrd)
-            
+    while (n < 8):
+        
 
+
+
+
+        
+    return (xsqrd)
         
 x = 1.75556
 
