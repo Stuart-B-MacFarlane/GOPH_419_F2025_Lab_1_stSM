@@ -12,33 +12,54 @@ def sqrt(x):
     #--------
     #int or float
     n = 0
-    xsqrd = 0
+    k = 0
+    k_fact = 1
+    k_prod = 1
+    k_coef = 1
+    
+    
+    xsqrt = 0
     if (x < 0) or (x > 2.5):
         print( "Radicand is outside of accepted range")
     else:
         if (x <= 0.75):
             a = 0.5
-            asqrd = 0.707106781186548
+            asqrt = 0.707106781186548
         elif (x <= 1.25):
             a = 1.0
-            asqrd = 1
+            asqrt = 1
         elif (x <= 1.75):
             a = 1.5
-            asqrd = 1.22474487139159 
+            asqrt = 1.22474487139159 
         else :
             a = 2.0
-            asqrd = 1.4142135623731
-        print ("a =",a, "and asqrd =",asqrd)
-    while (n < 8):
+            asqrt = 1.4142135623731
+        print ("a =",a, "and asqrd =",asqrt)
+        h = x-a
+        print ("h =",h)
+        k_term = asqrt
+        k_sum = asqrt
+        eps_a = 1
+    #while (n < 8):
+        k=1
+        k_fact = k_fact*(k+1)
+        if k == 0:
+            k_prod =1
+        else:
+            k_prod = k_prod*(-0.5*((2*k)-1))
+        k_coef = 0.5*k_prod / k_fact
+        print ("k=",k+1,"k_fact=",k_fact,"k_prod=",k_prod,"k_coef=",k_coef)
+         
+        
         
 
 
 
 
         
-    return (xsqrd)
+
         
-x = 1.75556
+x = 0.25
 
 sqrt(x)
 
