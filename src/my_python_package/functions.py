@@ -18,9 +18,7 @@ def sqrt(x):
     k_fact = 1
     k_prod = 1
     k_coef = 1
-    
-    
-    xsqrt = 0
+    x_sqrt = 0
     if (x < 0) or (x > 2.5):
         print( "Radicand is outside of accepted range")
         #Test for input in range
@@ -43,43 +41,42 @@ def sqrt(x):
         #print ("h =",h)
         eps_a = 1
         k = 0
-    while (eps_a > 5e-9):
-        #set epsilon a target for stopping
-        if k == 0:
-            k_fact =1
-            k_prod =1
-            k_coef = 1
-            k_term = asqrt
-            k_sum = k_term
-        else:
-            if k ==1:
-                k_prod = 1
+    
+        while (eps_a > 5e-9):
+            #set epsilon a target for stopping
+            if k == 0:
+                k_fact =1
+                k_prod =1
+                k_coef = 1
+                k_term = asqrt
+                k_sum = k_term
             else:
-                k_prod = k_prod*(-0.5*((2*(k-1))-1))
-            k_fact = k_fact*(k)
-            k_coef = 0.5*k_prod / k_fact
-            k_term = ((h**k)/(asqrt**((2*k)-1)))*k_coef
-            k_sum = k_sum + k_term
-        eps_a = abs(k_term/k_sum)
+                if k ==1:
+                    k_prod = 1
+                else:
+                    k_prod = k_prod*(-0.5*((2*(k-1))-1))
+                k_fact = k_fact*(k)
+                k_coef = 0.5*k_prod / k_fact
+                k_term = ((h**k)/(asqrt**((2*k)-1)))*k_coef
+                k_sum = k_sum + k_term
+            eps_a = abs(k_term/k_sum)
         
-        #print ("k=",k,"k_fact=",k_fact,"k_prod=",k_prod,"k_coef=",k_coef,"k_term=",k_term,"k_sum=",k_sum,"eps_a=",eps_a)
-        k= k+1
-    x_sqrt = k_sum
-    #print ("x=",x,"x_sqrt=",x_sqrt)
+            #print ("k=",k,"k_fact=",k_fact,"k_prod=",k_prod,"k_coef=",k_coef,"k_term=",k_term,"k_sum=",k_sum,"eps_a=",eps_a)
+            k= k+1
+        x_sqrt = k_sum
+        #print ("x=",x,"x_sqrt=",x_sqrt)
     return (x_sqrt)
 
-def arcsin(x):
-    if x < 0 or x > 1:
-        print ("x value outside of allowed range")
+def arcsin(sin_phi):
+    if sin_phi < 0 or sin_phi > 1:
+        print ("x value outside of arcsin allowed range")
     else :
         n = 1
         n_fact = 1
         eps_a = 1
         n_term = 0
         n_sum = 0
-        i = 0
         while (eps_a > 5e-9):
-        #while (i < 5):
             #print("1")
             n_fact = n_fact*n
             n_2 = 2*n
@@ -90,15 +87,16 @@ def arcsin(x):
                 #print("n=",n,"n_2=",n_2)
                 n_2 = n_2 - 1
             
-            
-            n_term = ((2*x)**(2*n)) / ((n**2)*((n2_fact)/(n_fact**2)))
+            #print(sin_phi,n,n2_fact,n_fact)
+            n_term = ((2*sin_phi)**(2*n)) / ((n**2)*((n2_fact)/(n_fact**2)))
             n_sum = n_sum + n_term
+            #print ("n_sum",n_sum,"n_term",n_term)
             eps_a = abs(n_term/n_sum)
             #print (" n_sum=",n_sum,"eps_a=",eps_a)
             n = n+1
-            i = i +1
+            
         x_arcsin = 0.5 * n_sum
-        #print ("x_arcsin=",x_arcsin)
+        print ("x_arcsin=",x_arcsin)
         x_arcsin = sqrt(x_arcsin)
         #print ("x_arcsin=",x_arcsin)
         return (x_arcsin)
@@ -106,10 +104,12 @@ def arcsin(x):
 
 def launch_angle (ve_v0, alpha):
     angle_radicand = (1- ((alpha/(1+alpha))* (ve_v0)**2))
+    #print("angle_radicand",angle_radicand)
     angle_radicand = sqrt(angle_radicand)
     sin_phi = (1+alpha)*angle_radicand
+    print("sin_phi",sin_phi)
     phi = arcsin(sin_phi)
-    #print ("phi =",phi)
+    print ("phi =",phi)
     return (phi)
 
 def launch_angle_range (ve_v0, alpha, tol_alpha):
@@ -132,6 +132,7 @@ def launch_angle_range (ve_v0, alpha, tol_alpha):
 ve_v0 = 2
 alpha = 0.25
 tol_alpha = 0.02
-#launch_angle (ve_v0,alpha)
+
+launch_angle (ve_v0,alpha)
 angle_range = launch_angle_range(ve_v0, alpha, tol_alpha)
 print ("Launch angle range:",angle_range)    
