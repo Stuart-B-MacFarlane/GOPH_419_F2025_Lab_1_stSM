@@ -2,7 +2,7 @@
 #Class: GOPH 419 F2025
 #Proffesor: Brandon Karchewski
 
-
+import numpy as np
 
 def sqrt(x):
     #Calculates the square root of a number
@@ -109,7 +109,7 @@ def launch_angle (ve_v0, alpha):
     angle_radicand = sqrt(angle_radicand)
     sin_phi = (1+alpha)*angle_radicand
     phi = arcsin(sin_phi)
-    print ("phi =",phi)
+    #print ("phi =",phi)
     return (phi)
 
 def launch_angle_range (ve_v0, alpha, tol_alpha):
@@ -117,7 +117,9 @@ def launch_angle_range (ve_v0, alpha, tol_alpha):
     alpha_lower = (1-tol_alpha)*alpha
     phi_min = launch_angle(ve_v0,alpha_upper)
     phi_max = launch_angle(ve_v0,alpha_lower)
-    print ("phi_min=",phi_min,"phi_max",phi_max)
+    #print ("phi_min=",phi_min,"phi_max",phi_max)
+    angle_range = np.array([phi_min,phi_max])
+    return (angle_range)
 
         
 
@@ -131,5 +133,5 @@ ve_v0 = 2
 alpha = 0.25
 tol_alpha = 0.02
 #launch_angle (ve_v0,alpha)
-launch_angle_range(ve_v0, alpha, tol_alpha)
-    
+angle_range = launch_angle_range(ve_v0, alpha, tol_alpha)
+print ("Launch angle range:",angle_range)    
