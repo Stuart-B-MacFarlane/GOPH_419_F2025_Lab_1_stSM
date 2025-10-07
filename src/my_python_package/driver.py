@@ -13,12 +13,13 @@ launch_angle_range,
 def main ():
     ve_v0 = 2.0
     tol_alpha = 0.02
-    alpha = [0.2,0.3,0.4]
+    alpha = [0.25,0.30,0.35]
     min_phi = []
     max_phi = []
     i=0
-    print (alpha[i])
     while (i< len(alpha)):
+        print (alpha[i])
+        print (len(alpha))
         range_phi = launch_angle_range(ve_v0,alpha[i],tol_alpha)
         min_phi.append (range_phi[0])
         max_phi.append (range_phi[1])

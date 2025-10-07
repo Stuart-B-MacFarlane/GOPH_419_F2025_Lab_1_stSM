@@ -96,7 +96,7 @@ def arcsin(sin_phi):
             n = n+1
             
         x_arcsin = 0.5 * n_sum
-        print ("x_arcsin=",x_arcsin)
+        #print ("x_arcsin=",x_arcsin)
         x_arcsin = sqrt(x_arcsin)
         #print ("x_arcsin=",x_arcsin)
         return (x_arcsin)
@@ -107,9 +107,9 @@ def launch_angle (ve_v0, alpha):
     #print("angle_radicand",angle_radicand)
     angle_radicand = sqrt(angle_radicand)
     sin_phi = (1+alpha)*angle_radicand
-    print("sin_phi",sin_phi)
+    #print("sin_phi",sin_phi)
     phi = arcsin(sin_phi)
-    print ("phi =",phi)
+    #print ("phi =",phi)
     return (phi)
 
 def launch_angle_range (ve_v0, alpha, tol_alpha):
@@ -135,4 +135,4 @@ tol_alpha = 0.02
 
 launch_angle (ve_v0,alpha)
 angle_range = launch_angle_range(ve_v0, alpha, tol_alpha)
-print ("Launch angle range:",angle_range)    
+#print ("Launch angle range:",angle_range)    
