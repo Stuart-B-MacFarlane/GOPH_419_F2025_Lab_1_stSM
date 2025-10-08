@@ -69,14 +69,14 @@ def sqrt(x):
 
 def arcsin(sin_phi):
     if sin_phi <= 0 or sin_phi > 1:
-        print ("x value outside of arcsin allowed range")
+        print ("x value outside of arcsin allowed range \n sin_phi=",sin_phi)
     else :
         n = 1
         n_fact = 1
         eps_a = 1
         n_term = 0
         n_sum = 0
-        print("sin_phi=",sin_phi)
+        #print("sin_phi=",sin_phi)
         while (eps_a > 5e-9):
             #print("1")
             n_fact = n_fact*n
@@ -118,7 +118,7 @@ def launch_angle_range (ve_v0, alpha, tol_alpha):
     alpha_lower = (1-tol_alpha)*alpha
     phi_min = launch_angle(ve_v0,alpha_upper)
     phi_max = launch_angle(ve_v0,alpha_lower)
-    #print ("phi_min=",phi_min,"phi_max",phi_max)
+    print ("phi_min=",phi_min,"phi_max",phi_max)
     angle_range = np.array([phi_min,phi_max])
     return (angle_range)
 
