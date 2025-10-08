@@ -32,7 +32,9 @@ def main ():
     plt.xlabel("aplha")
     plt.ylabel("phi (radians)")
     plt.legend()
+    #plt.savefig("test1.png")
     plt.show()
+    
     
     
 
@@ -66,5 +68,6 @@ def main ():
     plt.xlabel("ve/v0")
     plt.ylabel("phi (radians)")
     plt.legend()
+    #plt.savefig("test2.png")
     plt.show()
 main()
