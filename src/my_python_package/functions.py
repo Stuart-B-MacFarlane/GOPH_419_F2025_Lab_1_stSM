@@ -1,6 +1,6 @@
 # Author: Stuart MacFarlane
 #Class: GOPH 419 F2025
-#Proffesor: Brandon Karchewski
+#Profesor: Brandon Karchewski
 
 import numpy as np
 
@@ -118,11 +118,7 @@ def launch_angle_range (ve_v0, alpha, tol_alpha):
     alpha_lower = (1-tol_alpha)*alpha
     phi_min = launch_angle(ve_v0,alpha_upper)
     phi_max = launch_angle(ve_v0,alpha_lower)
-    print ("phi_min=",phi_min,"phi_max",phi_max)
+    #print ("phi_min=",phi_min,"phi_max",phi_max)
     angle_range = np.array([phi_min,phi_max])
     return (angle_range)
-
-        
-
-        
 
