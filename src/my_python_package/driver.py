@@ -4,6 +4,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+import os 
 from functions import (
 sqrt,
 arcsin,
@@ -32,7 +33,9 @@ def main ():
     plt.xlabel("Aplha")
     plt.ylabel("Phi (radians)")
     plt.legend()
-    plt.savefig("Lab1_fixed_Ve/V0.png")
+    output_dir = os.path.join("..","figures")
+    file_path = os.path.join(output_dir,"Lab_1_fixed_velocity")
+    plt.savefig(file_path)
     plt.show()
     
     
@@ -68,6 +71,8 @@ def main ():
     plt.xlabel("ve/v0")
     plt.ylabel("Phi (radians)")
     plt.legend()
-    plt.savefig("Lab1_fixed_alpha.png")
+    output_dir = os.path.join("..","figures")
+    file_path = os.path.join(output_dir,"Lab_1_fixed_alpha")
+    plt.savefig(file_path)
     plt.show()
 main()
