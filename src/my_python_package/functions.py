@@ -10,9 +10,11 @@ def sqrt(x):
     #--------
     # x: int or float
     #The number that will be square rooted
+    
     #Returns
     #--------
-    #int or float
+    #x_sqrt: int or float
+    #the square root of x
     n = 0
     k = 0
     k_fact = 1
@@ -68,6 +70,17 @@ def sqrt(x):
     return (x_sqrt)
 
 def arcsin(sin_phi):
+    #Calculates the arcsine of a number
+    #Parameters
+    #--------
+    # sin_phi: int or float
+    #The number that will be the argument of the arcsine function
+    
+    #Returns
+    #--------
+    #x_arcsin: int or float
+    #the arcsine of the input parameter
+
     if sin_phi <= 0 or sin_phi > 1:
         print ("x value outside of arcsin allowed range \n sin_phi=",sin_phi)
     else :
@@ -104,6 +117,19 @@ def arcsin(sin_phi):
 
 
 def launch_angle (ve_v0, alpha):
+    #Calculates the launch angle
+    #Parameters
+    #--------
+    #ve_v0: int or float
+    #The velocity ratio of the launch
+    #alpha: int or float 
+    #represents the desired height of launch
+    
+    #Returns
+    #--------
+    #phi: int or float
+    #Launch angle
+    
     angle_radicand = (1- ((alpha/(1+alpha))* (ve_v0)**2))
     #print("angle_radicand",angle_radicand)
     angle_radicand = sqrt(angle_radicand)
@@ -114,6 +140,21 @@ def launch_angle (ve_v0, alpha):
     return (phi)
 
 def launch_angle_range (ve_v0, alpha, tol_alpha):
+    #Calculates the upper and lower bounds of launch angle
+    #Parameters
+    #--------
+    #ve_v0: int or float
+    #The velocity ratio of the launch
+    #alpha: int or float 
+    #represents the desired height of launch
+    #tol_alpha: int or float
+    #the tolerance for height of launch
+
+    #Returns
+    #--------
+    #angle_range : array
+    #two element array, containing maximum and minimum launch angles
+    
     alpha_upper = (1+tol_alpha)*alpha
     alpha_lower = (1-tol_alpha)*alpha
     phi_min = launch_angle(ve_v0,alpha_upper)
